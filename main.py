@@ -2,6 +2,11 @@ import cv2
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
 
+print("Option 1: Motion Drawing")
+print("Optin 2: Motion Slider")
+print("")
+user = input("What do you want to do?:")
+
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
