@@ -1,6 +1,7 @@
 # src/core/hand_tracker.py
 from cvzone.HandTrackingModule import HandDetector
 
+
 class HandTracker:
     def __init__(self, max_hands=1, detectionCon=0.6):
         # Parameter müssen exakt so heißen wie hier

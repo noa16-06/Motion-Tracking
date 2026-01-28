@@ -1,10 +1,12 @@
 import cv2
 from src.core.hand_tracker import HandTracker
 from src.features.drawing import MotionDrawing
+from src.features.slider import MotionSlider
 
 print("")
 print("Option 1: Motion Drawing")
 print("Optin 2: Motion Slider")
+print("Option 3: ")
 print("")
 choice = input("What do you want to do?: ")
 
@@ -14,9 +16,11 @@ cap.set(4, 720)
 
 hand_tracker = HandTracker(max_hands=1, detectionCon=0.6)
 
-drawing = None
+feature = None
 if choice == "1":
-    drawing = MotionDrawing() 
+    feature = MotionDrawing() 
+elif choice == "2":
+    feature = MotionSlider(min_val=0, max_val=100, pos=(50, 200))
 
 while True:
     ret, img = cap.read()
@@ -24,11 +28,11 @@ while True:
 
     hands, img = hand_tracker.find_hands(img)
 
-    if hands and drawing:
-        drawing.update(hands[0], hand_tracker)
+    if hands and feature:
+        feature.update(hands[0], hand_tracker)
 
-    if drawing:
-        img = cv2.addWeighted(img, 1, drawing.canvas, 1, 0)
+    if feature:
+        img = cv2.addWeighted(img, 1, feature.canvas, 1, 0)
 
     cv2.imshow("Motion Tracking", img)
 
