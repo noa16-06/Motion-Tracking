@@ -2,3 +2,5 @@ opencv-python
 cvzone
 mediapipe
 numpy
+pyautogui
+math
