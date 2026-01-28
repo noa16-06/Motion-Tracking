@@ -1,11 +1,12 @@
 import cv2
-import numpy as np
 from cvzone.HandTrackingModule import HandDetector
+from src.features.drawing import MotionDrawing
 
+print("")
 print("Option 1: Motion Drawing")
 print("Optin 2: Motion Slider")
 print("")
-user = input("What do you want to do?:")
+choice = input("What do you want to do?: ")
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
@@ -13,8 +14,9 @@ cap.set(4, 720)
 
 detector = HandDetector(detectionCon=0.6, maxHands=1)
 
-canvas = np.zeros((720, 1280, 3), dtype=np.uint8)
-prev_x, prev_y = 0, 0
+drawing = None
+if choice == "1":
+    drawing = MotionDrawing()
 
 while True:
     ret, img = cap.read()
@@ -22,33 +24,15 @@ while True:
 
     hands, img = detector.findHands(img)
 
-    if hands:
-        hand = hands[0]
-        lmList = hand["lmList"]
-        fingers = detector.fingersUp(hand)
+    if hands and drawing:
+        drawing.update(hands[0], detector)
 
-        x, y = lmList[8][0], lmList[8][1]  # Zeigefinger-Spitze
+    if drawing:
+        img = cv2.addWeighted(img, 1, drawing.canvas, 1, 0)
 
-        # ✏️ Zeichnen (nur Zeigefinger)
-        if fingers == [0, 1, 0, 0, 0]:
-            if prev_x == 0 and prev_y == 0:
-                prev_x, prev_y = x, y
+    cv2.imshow("Motion Tracking", img)
 
-            cv2.line(canvas, (prev_x, prev_y), (x, y), (0, 0, 255), 5)
-            prev_x, prev_y = x, y
-
-        # 🧼 Löschen (alle Finger)
-        elif fingers == [1, 1, 1, 1, 1]:
-            canvas = np.zeros((720, 1280, 3), dtype=np.uint8)
-            prev_x, prev_y = 0, 0
-
-        else:
-            prev_x, prev_y = 0, 0
-
-    img = cv2.addWeighted(img, 1, canvas, 1, 0)
-    cv2.imshow("In-Air Drawing", img)
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 cap.release()
