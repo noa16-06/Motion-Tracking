@@ -9,7 +9,7 @@ class MotionDrawing:
 
     def update(self, hand, detector):
         lmList = hand["lmList"]
-        fingers = detector.fingersUp(hand)
+        fingers = detector.fingers_up(hand)
 
         x, y = lmList[8][0], lmList[8][1]
 
