@@ -1,29 +1,30 @@
-# Motion-Tracking ✋🎨
+# Motion Tracking
 
-A Python-based motion tracking application that allows you to draw in the air using your hand gestures.
+A simple Python project for **real-time hand motion tracking** using your webcam.  
+You can **draw in the air with your index finger** by tracking hand gestures through computer vision. ✋✍️
 
-Using computer vision, the script tracks your fingers via webcam input and translates gestures into drawing actions on the screen.
+---
 
-## ✨ Features
+## 🧠 Features
 
-- ☝️ **Draw with your index finger**  
-  Move only your pointer (index) finger to draw.
+- 🎨 Draw on the screen using hand gestures
+- ☝️ Index finger tracking for drawing
+- 🖐️ Open hand gesture to clear the canvas
+- 📹 Real-time webcam tracking
+- ⚡ Easy setup and quick start
 
-- ✋ **Clear the canvas**  
-  Show all **five fingers** to erase everything.
+---
 
-- 🎥 Real-time hand tracking via webcam
-- 🖌️ Simple and intuitive gesture-based interaction
+## ⚙️ Requirements
 
-## 🛠️ Requirements
+Make sure you have the following installed:
 
-Make sure you have Python installed (Python 3.8+ recommended).
+- Python **3.8+**
+- A working webcam
+- Required Python packages:
 
-Required libraries:
-- `opencv-python`
-- `mediapipe`
-- `numpy`
-
-Install dependencies with:
 ```bash
-pip install opencv-python mediapipe numpy
+pip install -r requirements.txt
+````
+
+1. **Clone the repository**
