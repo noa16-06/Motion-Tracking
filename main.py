@@ -3,7 +3,6 @@ from src.core.hand_tracker import HandTracker
 from src.features.drawing import MotionDrawing
 from src.features.slider import MotionSlider
 from src.features.mouse import VirtualMouse
-from src.features.bodytracker import track
 import pyautogui
 
 print("")
@@ -28,8 +27,6 @@ elif choice == "2":
     feature = MotionSlider(min_val=0, max_val=100, pos=(50, 200))
 elif choice == "3":
     feature = VirtualMouse(screen_w, screen_h)
-elif choice == "4":
-    feature = track()
 
 while True:
     ret, img = cap.read()
