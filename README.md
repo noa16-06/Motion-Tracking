@@ -19,7 +19,7 @@ You can **draw in the air with your index finger** by tracking hand gestures thr
 
 Make sure you have the following installed:
 
-- Python **3.8+**
+- Python **3.9+**
 - A working webcam
 - Required Python packages:
 
@@ -28,3 +28,14 @@ pip install -r requirements.txt
 ````
 
 1. **Clone the repository**
+
+```bash
+git clone https://github.com/Milchjunge16/Motion-Tracking.git
+cd Motion-Tracking
+```
+
+2. **Run the py**
+
+```bash
+python main.py
+```
