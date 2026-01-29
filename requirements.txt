@@ -3,4 +3,3 @@ cvzone
 mediapipe
 numpy
 pyautogui
-math
