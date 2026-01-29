@@ -3,12 +3,14 @@ from src.core.hand_tracker import HandTracker
 from src.features.drawing import MotionDrawing
 from src.features.slider import MotionSlider
 from src.features.mouse import VirtualMouse
+from src.features.aimbot import aimbot
 import pyautogui
 
 print("")
 print("Option 1: Motion Drawing")
 print("Optin 2: Motion Slider")
 print("Option 3: Virtuall Mouse")
+print("Option 4: Aimbot")
 print("")
 choice = input("What do you want to do?: ")
 
@@ -26,6 +28,8 @@ elif choice == "2":
     feature = MotionSlider(min_val=0, max_val=100, pos=(50, 200))
 elif choice == "3":
     feature = VirtualMouse(screen_w, screen_h)
+elif choice == "4":
+    feature = aimbot()
 
 while True:
     ret, img = cap.read()
