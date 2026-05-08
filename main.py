@@ -14,7 +14,7 @@ print("Option 4: Aimbot")
 print("")
 choice = input("What do you want to do?: ")
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(3, 1280)
 cap.set(4, 720)
 
