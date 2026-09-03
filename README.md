@@ -30,7 +30,7 @@ pip install -r requirements.txt
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/Milchjunge16/Motion-Tracking.git
+git clone https://github.com/noa16-06/Motion-Tracking.git
 cd Motion-Tracking
 ```
 
